@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+  const form = document.querySelector('form');
+const spinner = document.querySelector('.loading-spinner');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  spinner.style.display = 'block'; // Show the loading spinner
+  spinner.classList.add('spin'); // Start the animation
+  // You can add your own code here to handle the form submission
+  // For example, you can use fetch() to make a request to a server and display the results
+});
+
+const btn = document.querySelector(".button");
+
+btn.classList.add("button--loading");
+btn.classList.remove("button--loading");
+
+   </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      max-width: 500px;
+      padding: 2rem;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      background-color: #fcfafa;
+      background-color: #f5f5f5;
+      margin-bottom: 2rem;
+    }
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.603); /* add drop shadow effect */
+    }
+    button[type="submit"] {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4285f4;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      font-family: 'Montserrat', sans-serif;
+    }
+    button[type="submit"]:hover {
+      background-color: #3367d6;
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 5px solid rgba(129, 129, 129, 0.1);
+      border-top-color: #4285f4;
+      animation: spin 1s linear infinite;
+      margin-top: 2rem;
+    }
+    
+
+.button {
+  position: relative;
+  padding: 8px 16px;
+  background: #009579;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.button:active {
+  background: #007a63;
+}
+
+.button__text {
+  font: bold 20px "Montserrat", san-serif;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div>
+   <img src="https://i.ibb.co/MDwNfkf/78.png"> 
+  </div>
+  <form method="POST">
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" name="keyword">
+        <button type="submit" class="button" onclick="this.classList.toggle('button--loading')">
+        <span class="button__text"> Search </span>
+     </button>
+    </form>
+ 
+
+</body>
+</html>
